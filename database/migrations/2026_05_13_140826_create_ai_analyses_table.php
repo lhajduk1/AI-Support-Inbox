@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('sentiment')->nullable();
             $table->text('summary');
             $table->float('confidence', 43);
-            $table->json('raw_response');
+            $table->jsonb('raw_response');
 
             $table->timestamps();
         });
