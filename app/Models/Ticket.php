@@ -31,6 +31,11 @@ class Ticket extends Model
         return $this->belongsTo(Customer::class);
     }
 
+    public function TicketMessages(): HasMany
+    {
+        return $this->hasMany(TicketMessage::class);
+    }
+
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
