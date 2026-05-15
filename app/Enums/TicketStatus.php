@@ -6,6 +6,6 @@ enum TicketStatus: string
 {
     case OPEN = 'open';
     case PENDING = 'pending';
-    case REOLVED = 'resolved';
+    case RESOLVED = 'resolved';
     case CLOSED = 'closed';
 }
