@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\{StoreTicketRequest, UpdateTicketRequest};
 use App\Http\Resources\V1\TicketResource;
+use App\Jobs\ProcessTicketWithAi;
 use App\Models\Customer;
 use App\Models\Ticket;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -45,6 +46,8 @@ class TicketController extends Controller
                 'body' => $request->message
             ]);
         });
+
+        ProcessTicketWithAi::dispatch($ticket);
 
         return response()->json('Ticket created successfully', 201);
     }
